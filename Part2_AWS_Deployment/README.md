@@ -1,4 +1,4 @@
-### Part2_Docker_AWS_Deployment
+### Part2_AWS_Deployment
 
 **Overview**
 This directory contains the Dockerfile and deployment instructions for deploying the model on AWS SageMaker using Docker containers. It provides a Dockerized version of the model, enabling easy deployment and scalability.

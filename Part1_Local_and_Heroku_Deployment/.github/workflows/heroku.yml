@@ -3,11 +3,12 @@ name: Deploy to Heroku
 on:
   push:
     branches:
-      - main 
+      - main  # or any branch you want to deploy from
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -15,26 +16,20 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.10'
+        python-version: '3.10.14'  # Match this to your runtime.txt
 
-    - name: Cache Python packages
-      uses: actions/cache@v2
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-
+   
     - name: Install dependencies
       run: |
+        cd Part1_Local_and_Heroku_Deployment
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Deploy to Heroku
-      uses: akhileshns/heroku-deploy@v3.12.12  
+      uses: akhileshns/heroku-deploy@v3.12.12
       with:
-        heroku_api_key: ${{ secrets.HEROKU_API_KEY}}
-        heroku_app_name: "nyhouseprice"
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: "nyhouseprice"  # Your Heroku app name
         heroku_email: "leticiagenao403@gmail.com"
-        usedocker: false 
-        appdir: "."  
+        usedocker: false
+        appdir: "Part1_Local_and_Heroku_Deployment"  # Directory of your Flask app

@@ -14,7 +14,7 @@ jobs:  # Defines the jobs to be executed as part of the workflow
     - name: Set up Python  # Name of the step
       uses: actions/setup-python@v2  # Sets up Python environment
       with:
-        python-version: '3.8'  # Specifies the Python version to use
+        python-version: '3.10.14'  # Specifies the Python version to use
 
     - name: Install dependencies  # Name of the step
       run: |  # Specifies the shell commands to execute
@@ -28,3 +28,4 @@ jobs:  # Defines the jobs to be executed as part of the workflow
         heroku_app_name: "nyhouseprice"  # Specifies the name of the Heroku app to deploy to
         heroku_email: "leticiagenao403@gmail.com"  # Specifies the email associated with the Heroku account
         usedocker: false  # Specifies whether Docker should be used for deployment
+        appdir: "."  # Specifies the directory where the Procfile and other Heroku-specific files are located, '.' indicates the root of the repository

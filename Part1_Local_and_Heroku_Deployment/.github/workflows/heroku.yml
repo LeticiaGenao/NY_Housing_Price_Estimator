@@ -27,4 +27,4 @@ jobs:  # Defines the jobs to be executed as part of the workflow
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}  # Specifies the Heroku API key stored in GitHub Secrets
         heroku_app_name: "nyhouseprice"  # Specifies the name of the Heroku app to deploy to
         heroku_email: "leticiagenao403@gmail.com"  # Specifies the email associated with the Heroku account
-        usedocker: true  # Specifies whether Docker should be used for deployment
+        usedocker: false  # Specifies whether Docker should be used for deployment

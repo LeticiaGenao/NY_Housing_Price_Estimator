@@ -1,32 +1,16 @@
-# Web Framework and Server
-Flask==3.0.3                   # Lightweight web framework for building web applications
-gunicorn==22.0.0               # WSGI HTTP server for running Flask applications
-
-# Data Manipulation and Analysis
-pandas==1.3.3                  # Data manipulation and analysis library
-numpy==1.21.2                  # Fundamental package for numerical computing
-
-# Machine Learning
-scikit-learn==1.5.0                   # Machine learning library for predictive data analysis
-joblib==1.1.0                  # Library for saving and loading scikit-learn models
-
-# Data Visualization
-seaborn==0.11.2                # Statistical data visualization based on matplotlib
-scipy==1.7.3                   # Scientific computing and technical computing library
-
-# Template Rendering
-Jinja2==3.1.4                  # Template engine for Python
-MarkupSafe==2.1.5              # HTML/XML escaping for Python
-
-# WSGI Utility Library
-Werkzeug==3.0.3                # WSGI utility library for Python
-
-# Event Dispatching
-blinker==1.8.2                 # Fast, simple object-to-object and broadcast signaling
-
-# Command Line Interface
-click>=8.1.3                   # Python package for creating command line interfaces
-
-# Miscellaneous
-colorama==0.4.4                # Cross-platform colored terminal text
-itsdangerous>=2.1.2            # Various helpers to pass data to untrusted environments and back
+Flask==3.0.3
+gunicorn==22.0.0
+pandas==2.2.2
+scikit-learn==1.5.0
+sklearn==0.0
+numpy==1.26.4
+seaborn==0.11.2
+scipy==1.13.0
+Jinja2==3.1.4
+MarkupSafe==2.1.5
+Werkzeug==3.0.3
+blinker==1.8.2
+click==8.1.7
+colorama==0.4.6
+itsdangerous==2.2.0
+joblib==1.4.2

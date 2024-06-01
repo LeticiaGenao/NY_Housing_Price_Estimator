@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template  # Import necessary Flask modules for web application
-import joblib  # Import joblib for loading the machine learning model
+import pickle  # Import pickle for loading the machine learning model
 import numpy as np  # Import numpy for numerical operations
 import pandas as pd  # Import pandas for data manipulation
 import os  # Import os for file and directory operations
@@ -9,9 +9,10 @@ app = Flask(__name__)  # Create a Flask web application instance
 # Define the path to the saved machine learning model
 model_path = os.path.join(os.path.dirname(__file__), 'finalized_model.pkl')
 
-# Try to load the machine learning model from the specified path
+# Try to load the machine learning model from the specified path using pickle instead of joblib
 try:
-    model = joblib.load(model_path)
+    with open(model_path, 'rb') as file:
+        model = pickle.load(file)
 except FileNotFoundError:
     print(f"Model file not found in {model_path}")  # Print an error message if the model file is not found
     raise  # Raise an exception to stop execution if the model file is not found

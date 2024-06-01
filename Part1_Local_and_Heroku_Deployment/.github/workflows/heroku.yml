@@ -1,0 +1,30 @@
+name: Deploy to Heroku  # Name of the GitHub Actions workflow
+
+on:  # Specifies when the workflow will be triggered
+  push:  # Triggers the workflow on a push event
+    branches:  # Specifies the branches that will trigger the workflow
+      - main  # Triggers the workflow on pushes to the main branch
+
+jobs:  # Defines the jobs to be executed as part of the workflow
+  build:  # Name of the job
+    runs-on: ubuntu-latest  # Specifies the operating system for the job
+
+    steps:  # Specifies the sequence of steps to execute within the job
+    - uses: actions/checkout@v2  # Checks out the repository's code
+    - name: Set up Python  # Name of the step
+      uses: actions/setup-python@v2  # Sets up Python environment
+      with:
+        python-version: '3.8'  # Specifies the Python version to use
+
+    - name: Install dependencies  # Name of the step
+      run: |  # Specifies the shell commands to execute
+        python -m pip install --upgrade pip  # Upgrades pip to the latest version
+        pip install -r Local_and_Heroku_Deployment/requirements.txt  # Installs Python dependencies specified in requirements.txt
+
+    - name: Deploy to Heroku  # Name of the step
+      uses: akhileshns/heroku-deploy@v3.12.12  # Uses the Heroku deploy action
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}  # Specifies the Heroku API key stored in GitHub Secrets
+        heroku_app_name: "nyhouseprice"  # Specifies the name of the Heroku app to deploy to
+        heroku_email: "leticiagenao403@gmail.com"  # Specifies the email associated with the Heroku account
+        usedocker: true  # Specifies whether Docker should be used for deployment

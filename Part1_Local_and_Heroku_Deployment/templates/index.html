@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the webpage -->
+    <title>New York Housing Price Estimator</title>
+    
+    <!-- Styling for the webpage -->
+    <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/529621/pexels-photo-529621.jpeg');  /* Background image */
+            background-size: cover;  /* Cover the entire background */
+            color: #ffffff;  /* Text color */
+            text-align: center;  /* Center-align text */
+            font-family: Arial, sans-serif;  /* Font family */
+            font-size:19px;  /* Font size */
+        }
+        .container {
+            width: 50%;  /* Width of the container */
+            margin: 100px auto;  /* Center the container */
+            background: rgba(0, 0, 0, 0.6);  /* Background color with opacity */
+            padding: 20px;  /* Padding inside the container */
+            border-radius: 10px;  /* Border radius for rounded corners */
+        }
+        h1, h2 {
+            color: #FFD700;  /* Color for headings */
+        }
+        .form-input {
+            margin-bottom: 10px;  /* Margin below form inputs */
+        }
+        .form-input label {
+            font-weight: bold;  /* Bold font for labels */
+            color: #FFD700;  /* Color for labels */
+        }
+        .form-input input, .form-input select {
+            padding: 10px;  /* Padding for inputs */
+            width: 95%;  /* Width of inputs */
+            border-radius: 5px;  /* Border radius for rounded corners */
+        }
+        .submit-button {
+            background-color: #FFD700;  /* Background color for submit button */
+            color: black;  /* Text color for submit button */
+            padding: 10px 20px;  /* Padding for submit button */
+            border: none;  /* No border for submit button */
+            border-radius: 5px;  /* Border radius for rounded corners */
+            cursor: pointer;  /* Cursor style */
+            font-size: 16px;  /* Font size for submit button */
+        }
+        .submit-button:hover {
+            background-color: #e6c300;  /* Background color on hover */
+        }
+        .prediction-result {
+            color: #FFD700;  /* Color for prediction result */
+            margin-top: 20px;  /* Margin above prediction result */
+            font-size: 24px;  /* Font size for prediction result */
+            font-weight: bold;  /* Bold font for prediction result */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Heading of the webpage -->
+        <h1>New York Housing Price Estimator</h1>
+        
+        <!-- Description of the tool -->
+        <p>Explore the "New York Housing Price Estimator"! Our machine learning-powered tool simplifies the complex real estate landscape, providing precise insights for buyers, sellers, and investors.</p>
+        <p>From cozy apartments to spacious mansions, we consider essential details like bedrooms, bathrooms, square footage, and location to offer reliable price estimates. Bid farewell to uncertainty and embrace informed decisions with our transparent and efficient solution.</p>
+        
+        <!-- Form for user input -->
+        <form action="/predict" method="post">
+            <!-- Dropdown for selecting borough -->
+            <div class="form-input">
+                <label for="borough">Borough:</label>
+                <select name="borough">
+                    <option value="Manhattan">Manhattan</option>
+                    <option value="Brooklyn">Brooklyn</option>
+                    <option value="Queens">Queens</option>
+                    <option value="The Bronx">The Bronx</option>
+                    <option value="Staten Island">Staten Island</option>
+                </select>
+            </div>
+            
+            <!-- Dropdown for selecting property type -->
+            <div class="form-input">
+                <label for="type">Type:</label>
+                <select name="type">
+                    <option value="Co-op">Co-op</option>
+                    <option value="Condo">Condo</option>
+                    <option value="House">House</option>
+                    <option value="Multi-family">Multi-family</option>
+                    <option value="Townhouse">Townhouse</option>
+                </select>
+            </div>
+            
+            <!-- Input for number of bedrooms -->
+            <div class="form-input">
+                <label for="bedrooms">Number of Bedrooms (1-24):</label>
+                <input type="number" name="bedrooms" min="1" max="24" required>
+            </div>
+            
+            <!-- Input for number of bathrooms -->
+            <div class="form-input">
+                <label for="bathrooms">Number of Bathrooms (1-32):</label>
+                <input type="number" name="bathrooms" min="1" max="32" required>
+            </div>
+            
+            <!-- Input for property square feet -->
+            <div class="form-input">
+                <label for="square_feet">Property Square Feet (250-21000):</label>
+                <input type="number" name="square_feet" min="250" max="21000" required>
+            </div>
+            
+            <!-- Button to submit the form -->
+            <button type="submit" class="submit-button">Estimate Your Price</button>
+        </form>
+        
+        <!-- Display prediction result -->
+        <p class="prediction-result">{{ prediction_text }}</p>
+    </div>
+</body>
+</html>

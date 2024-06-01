@@ -15,7 +15,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.10.14'
+        python-version: '3.10'
 
     - name: Cache Python packages
       uses: actions/cache@v2
@@ -36,4 +36,5 @@ jobs:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
         heroku_app_name: "nyhouseprice"
         heroku_email: "leticiagenao403@gmail.com"
-        appdir: "Part1_Local_and_Heroku_Deployment"
+        usedocker: false 
+        appdir: "."  

@@ -19,7 +19,7 @@ jobs:  # Defines the jobs to be executed as part of the workflow
     - name: Install dependencies  # Name of the step
       run: |  # Specifies the shell commands to execute
         python -m pip install --upgrade pip  # Upgrades pip to the latest version
-        pip install -r Local_and_Heroku_Deployment/requirements.txt  # Installs Python dependencies specified in requirements.txt
+        pip install -r Part1_Local_and_Heroku_Deployment/requirements.txt  # Installs Python dependencies specified in requirements.txt
 
     - name: Deploy to Heroku  # Name of the step
       uses: akhileshns/heroku-deploy@v3.12.12  # Uses the Heroku deploy action
@@ -27,5 +27,4 @@ jobs:  # Defines the jobs to be executed as part of the workflow
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}  # Specifies the Heroku API key stored in GitHub Secrets
         heroku_app_name: "nyhouseprice"  # Specifies the name of the Heroku app to deploy to
         heroku_email: "leticiagenao403@gmail.com"  # Specifies the email associated with the Heroku account
-        usedocker: false  # Specifies whether Docker should be used for deployment
-        appdir: "."  # Specifies the directory where the Procfile and other Heroku-specific files are located, '.' indicates the root of the repository
+        appdir: "Part1_Local_and_Heroku_Deployment"

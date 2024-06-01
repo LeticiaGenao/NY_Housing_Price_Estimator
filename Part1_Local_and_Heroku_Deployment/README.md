@@ -6,7 +6,7 @@ This directory contains files for local model deployment and Heroku deployment. 
 **Contents**
 - `app.py`: Python script for running the Flask web application.
 - `requirements.txt`: List of Python dependencies required for running the application.
-- `model.pkl`: Serialized trained model for predicting housing prices.
+- `finalized_model.pkl`: Serialized trained model for predicting housing prices.
 - `Procfile`: Heroku configuration file specifying the commands to run the web application.
 - `runtime.txt`: Specifies the Python version to be used on Heroku.
 

@@ -71,5 +71,5 @@ def predict():
         return render_template('index.html', prediction_text=f'Error: {str(e)}')
 
 if __name__ == "__main__":
-    print("Current directory:", os.getcwd())  # Print the current directory path
-    app.run(debug=True)  # Run the Flask web application in debug mode
+    port = int(os.environ.get("PORT", 5000))  #  default to 5000
+    app.run(host='0.0.0.0', port=port, debug=True)

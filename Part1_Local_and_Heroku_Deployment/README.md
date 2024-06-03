@@ -21,5 +21,6 @@ This directory contains files for local model deployment and Heroku deployment. 
 5. For Docker:
    - Build the Docker image using: `docker build -t leticiagenao/ny-house-price-estimator .`
    - Run the container using: `docker run -p 5000:5000 leticiagenao/ny-house-price-estimator`
+
 **Docker Deployment**: Dockerized version of the model deployed
    - [HDocker Hub](https://hub.docker.com/r/leticiagenao/ny-house-price-estimator)
